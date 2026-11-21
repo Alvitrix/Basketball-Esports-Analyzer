@@ -26,10 +26,24 @@ def analyze_esports_match(kills, deaths, assists, objective_score):
 
 
 if __name__ == "__main__":
-    print("=== BASKETBALL COMBO GUARD STATS ===")
-    eff, b_rating = analyze_basketball_game(points=18, assists=7, rebounds=5, turnovers=2)
-    print(f"Efficiency Score: {eff} | Rating: {b_rating}\n")
+    print("=== ALVITRIX SPORTS & ESPORTS ANALYZER ===")
+    choice = input("Choose mode (1 = Basketball, 2 = Esports): ").strip()
 
-    print("=== ESPORTS COMPETITIVE MATCH STATS ===")
-    kda, impact, e_tier = analyze_esports_match(kills=19, deaths=11, assists=8, objective_score=45)
-    print(f"KDA Ratio: {kda} | Impact Score: {impact} | Tier: {e_tier}")
+    if choice == "1":
+        pts = int(input("Enter Points: "))
+        ast = int(input("Enter Assists: "))
+        reb = int(input("Enter Rebounds: "))
+        tov = int(input("Enter Turnovers: "))
+        eff, b_rating = analyze_basketball_game(pts, ast, reb, tov)
+        print(f"\nEfficiency Score: {eff} | Rating: {b_rating}")
+
+    elif choice == "2":
+        k = int(input("Enter Kills: "))
+        d = int(input("Enter Deaths: "))
+        a = int(input("Enter Assists: "))
+        obj = int(input("Enter Objective Score (0-100): "))
+        kda, impact, e_tier = analyze_esports_match(k, d, a, obj)
+        print(f"\nKDA Ratio: {kda} | Impact Score: {impact} | Tier: {e_tier}")
+
+    else:
+        print("Invalid choice. Please run again and enter 1 or 2.")
